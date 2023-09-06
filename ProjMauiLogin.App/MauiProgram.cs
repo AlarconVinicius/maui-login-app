@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using ProjMauiLogin.App.ViewModels;
+using ProjMauiLogin.App.Views;
 
 namespace ProjMauiLogin.App
 {
@@ -14,6 +16,13 @@ namespace ProjMauiLogin.App
 					fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 					fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 				});
+
+			builder.Services.AddSingleton<HomePage>();
+			builder.Services.AddSingleton<LoginPage>();
+			builder.Services.AddSingleton<ContactPage>();
+			builder.Services.AddSingleton<AboutPage>();
+
+			builder.Services.AddSingleton<LoginPageViewModel>();
 
 #if DEBUG
 		builder.Logging.AddDebug();
